@@ -1,6 +1,6 @@
-
-
 console.log('app.js linked')
+
+var gameStatus = ["", "", "", "", "", "", "", "", ""];
 
 
 var square1 = document.getElementById("square1")
@@ -21,6 +21,8 @@ square1.addEventListener("click", function () {
   } else {
     square1.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
+    gameStatus[0] = square1.innerHTML;
+
   }
 
 
@@ -32,6 +34,8 @@ square2.addEventListener("click", function () {
 
     square2.innerHTML = (useX === true ? "X" : "O");
   useX = !useX;
+  gameStatus[1] = square2.innerHTML;
+
   }
 
 
@@ -42,6 +46,8 @@ square3.addEventListener("click", function () {
   } else {
     square3.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
+    gameStatus[2] = square3.innerHTML;
+
   }
 })
 square4.addEventListener("click", function () {
@@ -50,6 +56,8 @@ square4.addEventListener("click", function () {
   } else {
     square4.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
+    gameStatus[3] = square4.innerHTML;
+
   }
 })
 square5.addEventListener("click", function () {
@@ -58,6 +66,8 @@ square5.addEventListener("click", function () {
   } else {
     square5.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
+    gameStatus[4] = square5.innerHTML;
+
   }
 })
 square6.addEventListener("click", function () {
@@ -67,6 +77,8 @@ square6.addEventListener("click", function () {
     square6.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
   }
+  gameStatus[5] = square6.innerHTML;
+
 })
 square7.addEventListener("click", function () {
   if (square7.innerHTML) {
@@ -74,6 +86,8 @@ square7.addEventListener("click", function () {
   } else {
     square7.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
+    gameStatus[6] = square7.innerHTML;
+
   }
 })
 square8.addEventListener("click", function () {
@@ -82,6 +96,8 @@ square8.addEventListener("click", function () {
   } else {
     square8.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
+    gameStatus[7] = square8.innerHTML;
+
   }
 })
 square9.addEventListener("click", function () {
@@ -90,8 +106,11 @@ square9.addEventListener("click", function () {
   } else {
     square9.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
+    gameStatus[8] = square9.innerHTML;
   }
 })
 
 
+var checkWinner = function () {
 
+}
