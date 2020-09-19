@@ -1,5 +1,6 @@
 console.log('app.js linked')
 
+var gameStatus = ["", "", "", "", "", "", "", "", ""];
 
 
 
@@ -14,7 +15,7 @@ var square8 = document.getElementById("square8")
 var square9 = document.getElementById("square9")
 
 var useX = true;
-var roundWon = false;
+
 square1.addEventListener("click", function () {
   if (square1.innerHTML) {
     console.log('error: square1 has been chosen already')
@@ -111,35 +112,41 @@ square9.addEventListener("click", function () {
   }
 })
 
-var gameStatus = ["", "", "", "", "", "", "", "", ""];
 var checkWinner = function () {
   var winningCombinations = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
-    [0, 4, 8],
-    [2, 4, 6],
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
   ]
+var roundWon = false;
 var winningPlayer;
 for (var i = 0; i < winningCombinations.length; i++) {
   var combo = winningCombinations[i];
+
   var a = gameStatus[combo[0]];
   var b = gameStatus[combo[1]];
   var c = gameStatus[combo[2]];
   if (a === '' || b === '' || c === '') {
     continue;
   }
-  if (a === b && b === a) {
+  if (a === b && b === c) {
+    debugger;
     roundWon = true;
     winningPlayer = a;
+
     break;
   }
 }
 if (roundWon) {
   document.getElementById('winnerCircle').innerHTML = 'Congratulations Player ' + winningPlayer + '! You Won'
+  console.log('useX: ' + useX);
+  console.log('roundWon: ' + roundWon);
+  console.log('gameStatus: ' + gameStatus);
 }
 }
 
