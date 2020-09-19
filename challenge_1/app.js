@@ -1,9 +1,9 @@
 console.log('app.js linked')
 
 var gameStatus = ["", "", "", "", "", "", "", "", ""];
-
-
-
+var useX = true;
+var gameActive = true;
+var tie = false;
 var square1 = document.getElementById("square1")
 var square2 = document.getElementById("square2")
 var square3 = document.getElementById("square3")
@@ -14,16 +14,18 @@ var square7 = document.getElementById("square7")
 var square8 = document.getElementById("square8")
 var square9 = document.getElementById("square9")
 
-var useX = true;
+
 
 square1.addEventListener("click", function () {
   if (square1.innerHTML) {
     console.log('error: square1 has been chosen already')
   } else {
+    if (gameActive) {
     square1.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[0] = square1.innerHTML;
     checkWinner();
+    }
   }
 
 
@@ -32,84 +34,96 @@ square2.addEventListener("click", function () {
   if (square2.innerHTML) {
     console.log('error: square2 has been chosen already')
   } else {
-
+    if (gameActive) {
     square2.innerHTML = (useX === true ? "X" : "O");
   useX = !useX;
   gameStatus[1] = square2.innerHTML;
     checkWinner();
   }
-
+  }
 
 })
 square3.addEventListener("click", function () {
   if (square3.innerHTML) {
     console.log('error: square3 has been chosen already')
   } else {
+    if (gameActive) {
     square3.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[2] = square3.innerHTML;
     checkWinner();
   }
+}
 })
 square4.addEventListener("click", function () {
   if (square4.innerHTML) {
     console.log('error: square4 has been chosen already')
   } else {
+    if (gameActive) {
     square4.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[3] = square4.innerHTML;
     checkWinner();
   }
+}
 })
 square5.addEventListener("click", function () {
   if (square5.innerHTML) {
     console.log('error: square5 has been chosen already')
   } else {
+    if (gameActive) {
     square5.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[4] = square5.innerHTML;
     checkWinner();
   }
+}
 })
 square6.addEventListener("click", function () {
   if (square6.innerHTML) {
     console.log('error: square6 has been chosen already')
   } else {
+    if (gameActive) {
     square6.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
-  }
+
   gameStatus[5] = square6.innerHTML;
   checkWinner();
+}}
 })
 square7.addEventListener("click", function () {
   if (square7.innerHTML) {
     console.log('error: square7 has been chosen already')
   } else {
+    if (gameActive) {
     square7.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[6] = square7.innerHTML;
     checkWinner();
   }
+}
 })
 square8.addEventListener("click", function () {
   if (square8.innerHTML) {
     console.log('error: square8 has been chosen already')
   } else {
+    if (gameActive) {
     square8.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[7] = square8.innerHTML;
     checkWinner();
-  }
+  }}
 })
 square9.addEventListener("click", function () {
   if (square9.innerHTML) {
     console.log('error: square9 has been chosen already')
   } else {
+    if (gameActive) {
     square9.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[8] = square9.innerHTML;
     checkWinner();
-  }
+  }}
 })
 
 var checkWinner = function () {
@@ -135,7 +149,6 @@ for (var i = 0; i < winningCombinations.length; i++) {
     continue;
   }
   if (a === b && b === c) {
-    debugger;
     roundWon = true;
     winningPlayer = a;
 
@@ -143,10 +156,15 @@ for (var i = 0; i < winningCombinations.length; i++) {
   }
 }
 if (roundWon) {
-  document.getElementById('winnerCircle').innerHTML = 'Congratulations Player ' + winningPlayer + '! You Won'
+  document.getElementById('winnerCircle').innerHTML = 'Congratulations Player ' + winningPlayer + '! You Won';
+  gameActive = false;
   console.log('useX: ' + useX);
   console.log('roundWon: ' + roundWon);
   console.log('gameStatus: ' + gameStatus);
+}
+if (!roundWon && gameStatus.indexOf("") === -1) {
+
+  document.getElementById('winnerCircle').innerHTML = 'TIE <br> Play Again';
 }
 }
 
@@ -172,4 +190,6 @@ document.getElementById('resetbtn').addEventListener('click', () => {
   //reset round won
   roundWon = false;
   document.getElementById("winnerCircle").innerHTML = "Pick A Tile To Win!";
+  //reset game activeness
+  gameActive = true;
 })
