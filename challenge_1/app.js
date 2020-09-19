@@ -3,7 +3,7 @@ console.log('app.js linked')
 var gameStatus = ["", "", "", "", "", "", "", "", ""];
 var useX = true;
 var gameActive = true;
-var tie = false;
+
 var square1 = document.getElementById("square1")
 var square2 = document.getElementById("square2")
 var square3 = document.getElementById("square3")
