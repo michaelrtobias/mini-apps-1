@@ -1,6 +1,6 @@
 console.log('app.js linked')
 
-var gameStatus = ["", "", "", "", "", "", "", "", ""];
+
 
 
 var square1 = document.getElementById("square1")
@@ -22,7 +22,7 @@ square1.addEventListener("click", function () {
     square1.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[0] = square1.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 
 
@@ -35,7 +35,7 @@ square2.addEventListener("click", function () {
     square2.innerHTML = (useX === true ? "X" : "O");
   useX = !useX;
   gameStatus[1] = square2.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 
 
@@ -47,7 +47,7 @@ square3.addEventListener("click", function () {
     square3.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[2] = square3.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 })
 square4.addEventListener("click", function () {
@@ -57,7 +57,7 @@ square4.addEventListener("click", function () {
     square4.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[3] = square4.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 })
 square5.addEventListener("click", function () {
@@ -67,7 +67,7 @@ square5.addEventListener("click", function () {
     square5.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[4] = square5.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 })
 square6.addEventListener("click", function () {
@@ -78,7 +78,7 @@ square6.addEventListener("click", function () {
     useX = !useX;
   }
   gameStatus[5] = square6.innerHTML;
-  checkWinner(gameStatus);
+  checkWinner();
 })
 square7.addEventListener("click", function () {
   if (square7.innerHTML) {
@@ -87,7 +87,7 @@ square7.addEventListener("click", function () {
     square7.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[6] = square7.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 })
 square8.addEventListener("click", function () {
@@ -97,7 +97,7 @@ square8.addEventListener("click", function () {
     square8.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[7] = square8.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 })
 square9.addEventListener("click", function () {
@@ -107,12 +107,12 @@ square9.addEventListener("click", function () {
     square9.innerHTML = (useX === true ? "X" : "O");
     useX = !useX;
     gameStatus[8] = square9.innerHTML;
-    checkWinner(gameStatus);
+    checkWinner();
   }
 })
 
-
-var checkWinner = function (currentState) {
+var gameStatus = ["", "", "", "", "", "", "", "", ""];
+var checkWinner = function () {
   var winningCombinations = [
     [0, 1, 2],
     [3, 4, 5],
@@ -126,9 +126,9 @@ var checkWinner = function (currentState) {
 var winningPlayer;
 for (var i = 0; i < winningCombinations.length; i++) {
   var combo = winningCombinations[i];
-  var a = currentState[combo[0]];
-  var b = currentState[combo[1]];
-  var c = currentState[combo[2]];
+  var a = gameStatus[combo[0]];
+  var b = gameStatus[combo[1]];
+  var c = gameStatus[combo[2]];
   if (a === '' || b === '' || c === '') {
     continue;
   }
@@ -163,5 +163,6 @@ document.getElementById('resetbtn').addEventListener('click', () => {
   //reset useX
   useX = true;
   //reset round won
+  roundWon = false;
   document.getElementById("winnerCircle").innerHTML = "Pick A Tile To Win!";
 })
