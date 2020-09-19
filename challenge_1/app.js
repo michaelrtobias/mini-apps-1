@@ -147,3 +147,21 @@ if (roundWon) {
 
 
 // reset function with event listener. making
+document.getElementById('resetbtn').addEventListener('click', () => {
+  //empty game status
+  gameStatus = ['', '', '', '', '', '', '', '', ''];
+  //reset innerHTML
+  square1.innerHTML = "";
+  square2.innerHTML = "";
+  square3.innerHTML = "";
+  square4.innerHTML = "";
+  square5.innerHTML = "";
+  square6.innerHTML = "";
+  square7.innerHTML = "";
+  square8.innerHTML = "";
+  square9.innerHTML = "";
+  //reset useX
+  useX = true;
+  //reset round won
+  document.getElementById("winnerCircle").innerHTML = "Pick A Tile To Win!";
+})

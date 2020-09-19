@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: lavender;
+
 }
 
 h1 {
@@ -32,4 +32,21 @@ h1 {
 
 .square:hover {
   background-color: #aaaaee;
+}
+
+#winnerCircle {
+  padding: 100px, 10px, 20px, 10px;
+  text-align: center;
+}
+
+body {
+  background-color: lavender;
+}
+
+#resetButtonArea {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
